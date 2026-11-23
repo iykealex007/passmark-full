@@ -1,437 +1,776 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Passmark — Nigeria's most rigorous exam preparation platform. WAEC, NECO, JAMB, Post-UTME, ICAN, TRCN, CIBN, NCLEX-RN, PLAB. Real past questions. Expert explanations.">
-<title>Passmark — Master Every Exam</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/home.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Passmark — Nigeria's #1 exam prep platform. Practise WAEC, NECO, JAMB, Post-UTME, ICAN, TRCN, NCLEX-RN and more with 50,000+ past questions." />
+  <title>Passmark — Nigeria's #1 Exam Prep Platform</title>
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-<!-- ANNOUNCEMENT BAR -->
-<div class="ann-bar" role="status">
-  <div class="inner">
-    <div class="ann-dot"></div>
-    <strong>Free trial:</strong>&nbsp;Start with 10 free practice questions — no card needed.
-    &nbsp;<a href="#pricing">See all packages →</a>
+<!-- ══════════════════ ANNOUNCEMENT BAR ══════════════════ -->
+<div class="topbar" id="topbar">
+  <div class="container">
+    <div class="topbar__inner">
+      <span class="topbar__dot"></span>
+      <span>🎉 New: <strong>JAMB 2025 questions</strong> just added —
+        <a href="#pricing" class="topbar__link">Upgrade now</a>
+      </span>
+    </div>
+    <button class="topbar__close" id="topbarClose" aria-label="Close">✕</button>
   </div>
-  <button class="ann-x" aria-label="Dismiss">✕</button>
 </div>
 
-<!-- NAV -->
-<nav id="nav" aria-label="Main navigation">
-  <div class="nav-row">
-    <a href="/" class="nav-logo" aria-label="Passmark home">
-      <div class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#07122A"/>
-          <path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/>
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav__inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="nav__logo">
+      <div class="nav__logo-mark">
+        <svg viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.5 2L18 6.5V14.5L10.5 19L3 14.5V6.5L10.5 2Z" fill="#0B1D3A" stroke="#0B1D3A" stroke-width="1"/>
+          <path d="M7 10.5L9.5 13L14 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
-      <span class="logo-text">Passmark</span>
+      <span class="nav__logo-text">Passmark</span>
     </a>
 
-    <div class="nav-links">
-      <a href="#exams">Exams</a>
-      <div class="nav-drop">
-        <button class="nav-drop-btn">School Exams <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-panel">
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#EEF2FF">🏫</div><div><div class="dd-title">WAEC</div><div class="dd-sub">West Africa Examinations</div></div></a>
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#E0F5F1">📖</div><div><div class="dd-title">NECO</div><div class="dd-sub">National Examinations Council</div></div></a>
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#FFF8E1">🎓</div><div><div class="dd-title">JAMB / UTME</div><div class="dd-sub">University admission</div></div></a>
+    <!-- Desktop links -->
+    <div class="nav__links" id="navLinks">
+
+      <div class="nav__drop">
+        <button class="nav__drop-btn">
+          School Exams
+          <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 8L2 4h8L6 8z"/></svg>
+        </button>
+        <div class="nav__panel">
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#E0F5F1">🏫</div>
+            <div><div class="nav__panel-title">WAEC</div><div class="nav__panel-sub">West Africa School Certificate</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#FFF8E1">📖</div>
+            <div><div class="nav__panel-title">NECO</div><div class="nav__panel-sub">National Examinations Council</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#EEF2FF">🎓</div>
+            <div><div class="nav__panel-title">JAMB / UTME</div><div class="nav__panel-sub">Joint Admissions &amp; Matriculation</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#F3EFFE">🏛️</div>
+            <div><div class="nav__panel-title">Post-UTME</div><div class="nav__panel-sub">UNILAG · UI · OAU · ABU · UNILORIN</div></div>
+          </a>
         </div>
       </div>
-      <div class="nav-drop">
-        <button class="nav-drop-btn">Professional <svg viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-panel">
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#FFF8E1">📊</div><div><div class="dd-title">ICAN</div><div class="dd-sub">Chartered Accountants</div></div></a>
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#E0F5F1">👩‍🏫</div><div><div class="dd-title">TRCN</div><div class="dd-sub">Teachers Registration</div></div></a>
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#F3EFFE">🏥</div><div><div class="dd-title">NCLEX-RN</div><div class="dd-sub">USA nursing licence</div></div></a>
-          <a class="dd-row" href="#exams"><div class="dd-icon" style="background:#EBF0FF">🇬🇧</div><div><div class="dd-title">PLAB</div><div class="dd-sub">UK medical licence</div></div></a>
+
+      <div class="nav__drop">
+        <button class="nav__drop-btn">
+          Professional
+          <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 8L2 4h8L6 8z"/></svg>
+        </button>
+        <div class="nav__panel">
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#FFF8E1">📊</div>
+            <div><div class="nav__panel-title">ICAN</div><div class="nav__panel-sub">Chartered Accountants</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#E0F5F1">👩‍🏫</div>
+            <div><div class="nav__panel-title">TRCN</div><div class="nav__panel-sub">Teachers Registration Council</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#FEF2F2">🏥</div>
+            <div><div class="nav__panel-title">NCLEX-RN</div><div class="nav__panel-sub">USA &amp; Canada Nursing Licence</div></div>
+          </a>
+          <a href="#exams" class="nav__panel-item">
+            <div class="nav__panel-icon" style="background:#EBF0FF">🇬🇧</div>
+            <div><div class="nav__panel-title">PLAB</div><div class="nav__panel-sub">UK GMC Medical Licence</div></div>
+          </a>
         </div>
       </div>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+
+      <a href="#pricing" class="nav__link">Pricing</a>
+      <a href="#faq"     class="nav__link">FAQ</a>
     </div>
 
-    <div class="nav-cta">
-      <button class="btn btn-ghost btn-sm" data-modal="login">Log In</button>
-      <button class="btn btn-gold btn-sm" data-modal="signup">Start Free →</button>
+    <!-- CTA buttons -->
+    <div class="nav__actions">
+      <span id="navUserName" style="display:none;color:rgba(255,255,255,.75);font-size:0.86rem;font-weight:500"></span>
+      <button class="btn btn--outline btn--sm" id="navLoginBtn"  style="color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25);background:transparent" data-open-modal="login">Log In</button>
+      <button class="btn btn--gold   btn--sm" id="navSignupBtn" data-open-modal="signup">Get Started Free →</button>
     </div>
-    <button class="nav-ham" aria-label="Open menu"><span></span><span></span><span></span></button>
+
+    <!-- Hamburger -->
+    <button class="nav__ham" id="navHam" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="nav__drawer" id="navDrawer">
+    <a href="#exams"   class="nav__drawer-link">WAEC / NECO / JAMB</a>
+    <a href="#exams"   class="nav__drawer-link">Post-UTME</a>
+    <a href="#exams"   class="nav__drawer-link">ICAN / TRCN / CIBN</a>
+    <a href="#exams"   class="nav__drawer-link">NCLEX-RN / PLAB</a>
+    <a href="#pricing" class="nav__drawer-link">Pricing</a>
+    <a href="#faq"     class="nav__drawer-link">FAQ</a>
+    <div class="nav__drawer-btns">
+      <button class="btn btn--outline btn--fw" style="color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.25);background:transparent" data-open-modal="login">Log In</button>
+      <button class="btn btn--gold btn--fw" data-open-modal="signup">Get Started Free →</button>
+    </div>
   </div>
 </nav>
 
-<div class="nav-drawer">
-  <a href="#exams">Exams</a>
-  <a href="#features">Features</a>
-  <a href="#pricing">Pricing</a>
-  <div class="drawer-ctas">
-    <button class="btn btn-outline btn-fw" data-modal="login">Log In</button>
-    <button class="btn btn-gold btn-fw" data-modal="signup">Start Free — No Card</button>
-  </div>
-</div>
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="hero">
+  <!-- Background photo -->
+  <img src="img/examstudents.png" alt="Students in examination hall" class="hero__bg-photo" />
+  <div class="hero__bg-mesh"></div>
+  <div class="hero__bg-grid"></div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <img src="img/examstudents.png" alt="Students studying" class="hero-bg-img" loading="eager">
-    <div class="hero-overlay"></div>
-  </div>
-  <div class="hero-content container">
-    <div class="hero-text">
-      <div class="hero-badge reveal">
-        <span class="badge-dot"></span>
-        Nigeria's #1 Exam Prep Platform
-      </div>
-      <h1 class="hero-h1 reveal reveal--delay-1">
-        Pass Every Exam.<br>
-        <span class="hero-h1--gold">First Time.</span>
+  <div class="hero__body">
+    <div class="hero__left-inner">
+
+      <h1 class="hero__title reveal">
+        Pass Your Exam.<br>
+        <span class="text-gold">First Time.</span>
       </h1>
-      <p class="hero-sub reveal reveal--delay-2">
-        Real past questions, expert explanations, and performance tracking for
-        WAEC · NECO · JAMB · Post-UTME · ICAN · TRCN · CIBN · NCLEX-RN · PLAB
+
+      <p class="hero__desc reveal">
+        Nigeria's most complete exam prep platform. Practise with <strong>real past questions</strong>
+        for WAEC, NECO, JAMB, Post-UTME, ICAN, TRCN, NCLEX-RN and more.
       </p>
-      <div class="hero-actions reveal reveal--delay-3">
-        <button class="btn btn-gold btn-lg" data-modal="signup">Start Free — No Card Required</button>
-        <a href="#exams" class="btn btn-outline-light btn-lg">Browse Exams →</a>
+
+      <div class="hero__ctas reveal">
+        <button class="btn btn--gold btn--lg" data-open-modal="signup">Start Practising Free →</button>
+        <a href="#exams" class="btn btn--ghost btn--lg">See All Exams</a>
       </div>
-      <div class="hero-social-proof reveal reveal--delay-4">
-        <div class="proof-avatars">
-          <div class="proof-av" style="background:#2255CC">A</div>
-          <div class="proof-av" style="background:#007B68">B</div>
-          <div class="proof-av" style="background:#D4900A">C</div>
-          <div class="proof-av" style="background:#7B2FBE">D</div>
+
+      <div class="hero__trust reveal">
+        <div class="hero__trust-item"><span class="hero__trust-check">✓</span> Free to start</div>
+        <div class="hero__trust-item"><span class="hero__trust-check">✓</span> No credit card needed</div>
+        <div class="hero__trust-item"><span class="hero__trust-check">✓</span> Works on any phone</div>
+      </div>
+
+      <!-- Stats -->
+      <div class="hero__stats reveal">
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-counter="9" id="ctr1">9</div>
+          <div class="hero__stat-lbl">Exams Covered</div>
         </div>
-        <span>Join <strong>12,000+</strong> students already preparing</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-stats container">
-    <div class="hstat reveal">
-      <span class="hstat-num" data-target="9">0</span><span class="hstat-unit">+</span>
-      <span class="hstat-label">Exams Covered</span>
-    </div>
-    <div class="hstat-div"></div>
-    <div class="hstat reveal reveal--delay-1">
-      <span class="hstat-num" data-target="50000">0</span><span class="hstat-unit">+</span>
-      <span class="hstat-label">Past Questions</span>
-    </div>
-    <div class="hstat-div"></div>
-    <div class="hstat reveal reveal--delay-2">
-      <span class="hstat-num" data-target="12000">0</span><span class="hstat-unit">+</span>
-      <span class="hstat-label">Students Enrolled</span>
-    </div>
-    <div class="hstat-div"></div>
-    <div class="hstat reveal reveal--delay-3">
-      <span class="hstat-num" data-target="94">0</span><span class="hstat-unit">%</span>
-      <span class="hstat-label">Pass Rate</span>
-    </div>
-  </div>
-</section>
-
-<!-- EXAM CATALOGUE -->
-<section id="exams" class="section section--off">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="section-eyebrow">Exam Library</p>
-      <h2 class="section-title">Every Exam You Need</h2>
-      <p class="section-sub">From secondary school to professional certification — we have the past questions and study tools for all major Nigerian exams.</p>
-    </div>
-
-    <div class="exam-tabs reveal">
-      <button class="exam-tab active" data-tab="school">School Exams</button>
-      <button class="exam-tab" data-tab="postutme">Post-UTME</button>
-      <button class="exam-tab" data-tab="professional">Professional</button>
-      <button class="exam-tab" data-tab="medical">Nursing &amp; Medical</button>
-    </div>
-
-    <div class="exam-grid" id="examGrid"></div>
-  </div>
-</section>
-
-<!-- PHOTO SPLIT A -->
-<section class="photo-split section--navy">
-  <div class="photo-split__img">
-    <img src="img/classstudents.png" alt="Students in a lecture hall" loading="lazy">
-  </div>
-  <div class="photo-split__body">
-    <p class="section-eyebrow" style="color:var(--gold-lt)">Built for Nigerian Students</p>
-    <h2 class="section-title" style="color:var(--white)">Exactly What WAEC, NECO & JAMB Actually Ask</h2>
-    <p style="color:rgba(255,255,255,0.72);font-size:var(--text-md);line-height:1.75;margin-bottom:28px">
-      Every question on our platform comes directly from real past papers. No made-up questions, no guesswork — just the actual questions that appeared on the exam, with detailed explanations from subject experts.
-    </p>
-    <ul class="check-list">
-      <li>Past questions from 1990 to 2025</li>
-      <li>Detailed explanations for every answer</li>
-      <li>Topic-by-topic breakdown so you know what to focus on</li>
-      <li>Timed mock exams that mirror the real thing</li>
-    </ul>
-    <button class="btn btn-gold" data-modal="signup" style="margin-top:28px">Start Practising Free →</button>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section id="features" class="section section--white">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="section-eyebrow">Platform Features</p>
-      <h2 class="section-title">Everything You Need to Pass</h2>
-    </div>
-    <div class="feat-grid">
-      <div class="feat-card reveal">
-        <div class="feat-icon">📚</div>
-        <h3>Massive Question Bank</h3>
-        <p>50,000+ real past questions across all subjects, years, and exam types. Never run out of material to practice with.</p>
-      </div>
-      <div class="feat-card reveal reveal--delay-1">
-        <div class="feat-icon">⏱️</div>
-        <h3>Timed Mock Exams</h3>
-        <p>Simulate the real exam experience with timed sessions that match the exact format and question count of each exam.</p>
-      </div>
-      <div class="feat-card reveal reveal--delay-2">
-        <div class="feat-icon">💡</div>
-        <h3>Expert Explanations</h3>
-        <p>Every question comes with a detailed explanation of why the answer is correct — not just the answer key.</p>
-      </div>
-      <div class="feat-card reveal reveal--delay-3">
-        <div class="feat-icon">📈</div>
-        <h3>Performance Tracking</h3>
-        <p>See exactly which topics you're strong in and which need more work. Focus your study time where it matters most.</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">🔥</div>
-        <h3>Daily Streaks</h3>
-        <p>Build a consistent study habit with daily practice reminders and streak tracking to keep you motivated.</p>
-      </div>
-      <div class="feat-card reveal reveal--delay-1">
-        <div class="feat-icon">📱</div>
-        <h3>Mobile Friendly</h3>
-        <p>Study from your phone, tablet, or laptop. Your progress syncs across all devices automatically.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PHOTO SPLIT B -->
-<section class="photo-split photo-split--b section--off">
-  <div class="photo-split__img">
-    <img src="img/labstudents.png" alt="Healthcare students in a lab" loading="lazy">
-  </div>
-  <div class="photo-split__body">
-    <p class="section-eyebrow">For Healthcare Professionals</p>
-    <h2 class="section-title">NCLEX-RN & PLAB Preparation</h2>
-    <p style="font-size:var(--text-md);line-height:1.75;color:var(--slate);margin-bottom:28px">
-      Nigerian nurses and doctors preparing to work internationally trust Passmark for their licensing exams. Our NCLEX-RN and PLAB question banks are written by qualified professionals who passed those exams.
-    </p>
-    <ul class="check-list check-list--navy">
-      <li>Questions written by NCLEX-certified nurses</li>
-      <li>PLAB questions reviewed by GMC-registered doctors</li>
-      <li>Clinical judgment framework built into every explanation</li>
-      <li>Next Generation NCLEX (NGN) format supported</li>
-    </ul>
-    <button class="btn btn-primary" data-modal="signup" style="margin-top:28px">Start Healthcare Prep →</button>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="section section--navy">
-  <div class="container">
-    <div class="section-head reveal">
-      <p class="section-eyebrow" style="color:var(--gold-lt)">Simple Pricing</p>
-      <h2 class="section-title" style="color:var(--white)">Pick Your Plan</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.65)">Start free with 10 questions. Upgrade when you're ready.</p>
-    </div>
-
-    <div class="price-toggle reveal">
-      <button class="ptog active" data-period="monthly">Monthly</button>
-      <button class="ptog" data-period="annual">Annual <span class="ptog-save">Save 30%</span></button>
-    </div>
-
-    <div class="pricing-grid reveal">
-
-      <div class="price-card">
-        <div class="price-card__header">
-          <div class="price-card__badge">Most Popular</div>
-          <h3>School</h3>
-          <p class="price-card__desc">WAEC · NECO · JAMB</p>
-          <div class="price-card__price">
-            <span class="price-currency">₦</span><span class="price-amount" data-monthly="6000" data-annual="4200">6,000</span>
-            <span class="price-per">/month</span>
-          </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-counter="50000" id="ctr2">50,000+</div>
+          <div class="hero__stat-lbl">Past Questions</div>
         </div>
-        <ul class="price-features">
-          <li>✓ WAEC past questions (all subjects)</li>
-          <li>✓ NECO past questions (all subjects)</li>
-          <li>✓ JAMB/UTME full question bank</li>
-          <li>✓ Timed mock exams</li>
-          <li>✓ Performance dashboard</li>
-          <li>✓ Unlimited practice sessions</li>
-        </ul>
-        <button class="btn btn-gold btn-fw" data-modal="signup">Get Started →</button>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-counter="12000" id="ctr3">12,000+</div>
+          <div class="hero__stat-lbl">Students</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num" data-counter="94" id="ctr4">94%</div>
+          <div class="hero__stat-lbl">Pass Rate</div>
+        </div>
       </div>
 
+    </div><!-- /hero__left-inner -->
+  </div><!-- /hero__body -->
+
+  <!-- Scroll cue -->
+  <div class="hero__foot">
+    <div class="scroll-cue">
+      <div class="scroll-cue__line"></div>
+      Scroll
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EXAM CATALOGUE ══════════════════ -->
+<section class="section section--off" id="exams">
+  <div class="container">
+
+    <div class="section-heading section-heading--center reveal">
+      <div class="eyebrow">What We Cover</div>
+      <h2 class="section-heading__title">Every Major Nigerian Exam,<br>Under One Roof</h2>
+    </div>
+
+    <!-- Tabs -->
+    <div class="exams__tabs reveal" id="examTabs">
+      <button class="exams__tab exams__tab--active" data-tab="school">🏫 School</button>
+      <button class="exams__tab" data-tab="postutme">🏛️ Post-UTME</button>
+      <button class="exams__tab" data-tab="professional">📊 Professional</button>
+      <button class="exams__tab" data-tab="medical">🏥 Nursing &amp; Medical</button>
+    </div>
+
+    <!-- Dynamic grid injected by home.js -->
+    <div class="exams__cards" id="examGrid"></div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ PHOTO SPLIT A ══════════════════ -->
+<section class="photo-split">
+  <!-- Left: image -->
+  <div class="photo-split__media">
+    <img src="img/classstudents.png" alt="Students in a lecture hall" loading="lazy" />
+    <div class="photo-split__overlay"></div>
+    <div class="photo-split__label">
+      <span class="badge badge--navy">Real Past Questions</span>
+      <p class="photo-split__caption">Sourced directly from official exam bodies since 1983</p>
+    </div>
+  </div>
+
+  <!-- Right: text -->
+  <div class="photo-split__content photo-split__content--dark">
+    <div class="eyebrow eyebrow--white reveal">Real Past Questions</div>
+    <h2 class="section-heading__title section-heading__title--white reveal" style="margin-bottom:16px">
+      Practise the <em>exact questions</em> that have appeared in your exam
+    </h2>
+    <p class="reveal" style="color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:28px">
+      Our database is sourced directly from official past papers going back as far as 1983.
+      Every question comes with a detailed explanation so you understand the <em>why</em>,
+      not just the answer.
+    </p>
+
+    <div class="photo-split__feature reveal">
+      <div class="photo-split__feature-icon">📄</div>
+      <div>
+        <div class="photo-split__feature-title">Official Past Papers</div>
+        <div class="photo-split__feature-desc">Every question sourced directly from real exam papers</div>
+      </div>
+    </div>
+    <div class="photo-split__feature reveal">
+      <div class="photo-split__feature-icon">💡</div>
+      <div>
+        <div class="photo-split__feature-title">Full Explanations</div>
+        <div class="photo-split__feature-desc">Learn the reasoning behind every answer</div>
+      </div>
+    </div>
+    <div class="photo-split__feature reveal">
+      <div class="photo-split__feature-icon">📅</div>
+      <div>
+        <div class="photo-split__feature-title">Years of Coverage</div>
+        <div class="photo-split__feature-desc">JAMB questions from 1983 · ICAN from 2011 · WAEC from 1990</div>
+      </div>
+    </div>
+
+    <div style="margin-top:32px" class="reveal">
+      <button class="btn btn--gold" data-open-modal="signup">Start Practising →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FEATURES ══════════════════ -->
+<section class="section section--white" id="features">
+  <div class="container">
+    <div class="section-heading section-heading--center reveal">
+      <div class="eyebrow">Why Students Choose Passmark</div>
+      <h2 class="section-heading__title">Everything You Need to Pass</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">📝</div>
+        <h4>Practice Mode</h4>
+        <p>Work through questions at your own pace with instant feedback and detailed explanations after every answer.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">⏱️</div>
+        <h4>Mock Exam Mode</h4>
+        <p>Simulate real exam conditions with a countdown timer. Build the speed and confidence you need on exam day.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">📊</div>
+        <h4>Progress Tracking</h4>
+        <p>See exactly where you're strong and where you need work. Subject-by-subject breakdowns keep you focused.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">🔥</div>
+        <h4>Daily Streaks</h4>
+        <p>Build a daily practice habit. Our streak system keeps you consistent — consistency is what wins exams.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">💡</div>
+        <h4>Full Explanations</h4>
+        <p>Every question has a 2–3 sentence explanation written by qualified educators. Learn, don't just memorise.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-card__icon">📱</div>
+        <h4>Works on Any Device</h4>
+        <p>Passmark works perfectly on your phone, tablet or laptop. Practise anywhere — even without a fast connection.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PHOTO SPLIT B ══════════════════ -->
+<section class="photo-split photo-split--reverse">
+  <!-- Left: text (reversed visually by photo-split--reverse) -->
+  <div class="photo-split__content photo-split__content--light">
+    <div class="eyebrow reveal">For Every Ambition</div>
+    <h2 class="section-heading__title reveal" style="margin-bottom:16px">
+      From secondary school to <em>professional certification</em>
+    </h2>
+    <p class="reveal" style="color:var(--slate);line-height:1.8;margin-bottom:28px">
+      Whether you're writing WAEC, aiming for a top university through Post-UTME,
+      or sitting your ICAN professional exams — Passmark has you covered at every
+      stage of your journey.
+    </p>
+    <div class="reveal">
+      <button class="btn btn--navy" data-open-modal="signup">Create Free Account →</button>
+    </div>
+  </div>
+
+  <!-- Right: image -->
+  <div class="photo-split__media">
+    <img src="img/labstudents.png" alt="Students in a laboratory" loading="lazy" />
+    <div class="photo-split__overlay"></div>
+  </div>
+</section>
+
+<!-- ══════════════════ PRICING ══════════════════ -->
+<section class="section section--navy" id="pricing">
+  <div class="container">
+
+    <div class="section-heading section-heading--center reveal">
+      <div class="eyebrow eyebrow--white">Simple Pricing</div>
+      <h2 class="section-heading__title section-heading__title--white">Invest in Your Future</h2>
+      <p class="section-heading__body section-heading__body--white">All plans include full access to your chosen exam. Cancel anytime.</p>
+    </div>
+
+    <!-- Toggle -->
+    <div style="display:flex;justify-content:center;margin-bottom:36px" class="reveal">
+      <div class="pricing__billing">
+        <button class="pricing__tab pricing__tab--active" data-period="monthly">Monthly</button>
+        <button class="pricing__tab" data-period="annual">
+          Annual <span class="pricing__save-tag">Save 20%</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="pricing__cards reveal">
+
+      <!-- Basic -->
+      <div class="price-card price-card--dark">
+        <div class="price-card__name">Basic</div>
+        <div class="price-card__desc">1 exam, all subjects</div>
+        <div class="price-card__amount">₦<span data-monthly="6,000" data-annual="4,800">6,000</span></div>
+        <div class="price-card__period">/month</div>
+        <div class="price-card__features">
+          <div class="price-card__feature"><div class="price-card__check">✓</div> 1 exam of your choice</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> All subjects for that exam</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Practice &amp; Mock modes</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Full explanations</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Progress tracking</div>
+        </div>
+        <button class="btn btn--outline btn--fw" style="color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.22)" data-open-modal="signup">Get Basic →</button>
+      </div>
+
+      <!-- Standard — featured -->
       <div class="price-card price-card--featured">
-        <div class="price-card__header">
-          <div class="price-card__badge price-card__badge--gold">Best Value</div>
-          <h3>School + Post-UTME</h3>
-          <p class="price-card__desc">WAEC · NECO · JAMB · 5 Universities</p>
-          <div class="price-card__price">
-            <span class="price-currency">₦</span><span class="price-amount" data-monthly="8500" data-annual="5950">8,500</span>
-            <span class="price-per">/month</span>
-          </div>
+        <div class="price-card__pip">Most Popular</div>
+        <div class="price-card__name">Standard</div>
+        <div class="price-card__desc">3 exams, all subjects</div>
+        <div class="price-card__amount">₦<span data-monthly="8,500" data-annual="6,800">8,500</span></div>
+        <div class="price-card__period">/month</div>
+        <div class="price-card__features">
+          <div class="price-card__feature"><div class="price-card__check">✓</div> 3 exams of your choice</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> All subjects for each exam</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Practice &amp; Mock modes</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Full explanations</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Progress tracking</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Priority support</div>
         </div>
-        <ul class="price-features">
-          <li>✓ Everything in School</li>
-          <li>✓ UNILAG Post-UTME</li>
-          <li>✓ University of Ibadan Post-UTME</li>
-          <li>✓ OAU Post-UTME</li>
-          <li>✓ ABU Post-UTME</li>
-          <li>✓ UNILORIN Post-UTME</li>
-        </ul>
-        <button class="btn btn-gold btn-fw" data-modal="signup">Get Started →</button>
+        <button class="btn btn--gold btn--fw" data-open-modal="signup">Get Standard →</button>
+        <div class="price-card__note">Most popular among WAEC + JAMB students</div>
       </div>
 
-      <div class="price-card">
-        <div class="price-card__header">
-          <h3>Professional</h3>
-          <p class="price-card__desc">ICAN · TRCN · CIBN</p>
-          <div class="price-card__price">
-            <span class="price-currency">₦</span><span class="price-amount" data-monthly="9500" data-annual="6650">9,500</span>
-            <span class="price-per">/month</span>
-          </div>
+      <!-- Premium -->
+      <div class="price-card price-card--dark">
+        <div class="price-card__name">Premium</div>
+        <div class="price-card__desc">All 9 exams &amp; subjects</div>
+        <div class="price-card__amount">₦<span data-monthly="9,500" data-annual="7,600">9,500</span></div>
+        <div class="price-card__period">/month</div>
+        <div class="price-card__features">
+          <div class="price-card__feature"><div class="price-card__check">✓</div> All 9 exams</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Every subject</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Practice &amp; Mock modes</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Full explanations</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> Advanced analytics</div>
+          <div class="price-card__feature"><div class="price-card__check">✓</div> 24/7 priority support</div>
         </div>
-        <ul class="price-features">
-          <li>✓ ICAN all levels (Foundation, Skills, Professional)</li>
-          <li>✓ TRCN all categories (A, B, C, D)</li>
-          <li>✓ CIBN question bank</li>
-          <li>✓ Timed mock exams</li>
-          <li>✓ Performance dashboard</li>
-          <li>✓ Priority support</li>
-        </ul>
-        <button class="btn btn-gold btn-fw" data-modal="signup">Get Started →</button>
+        <button class="btn btn--outline btn--fw" style="color:rgba(255,255,255,.75);border-color:rgba(255,255,255,.22)" data-open-modal="signup">Get Premium →</button>
       </div>
 
+    </div><!-- /pricing__cards -->
+
+    <!-- Payment strip -->
+    <div class="pricing__pay-strip reveal">
+      <span class="pricing__pay-label">Secure payment via</span>
+      <span class="pricing__pay-badge">Paystack</span>
+      <span class="pricing__pay-badge">Visa</span>
+      <span class="pricing__pay-badge">Mastercard</span>
+      <span class="pricing__pay-badge">Bank Transfer</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ FAQ ══════════════════ -->
+<section class="section section--white" id="faq">
+  <div class="container">
+
+    <div class="faq__cols">
+      <!-- Left: sticky heading -->
+      <div class="faq__side reveal">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-heading__title" style="margin-bottom:12px">Common Questions</h2>
+        <p class="faq__contact">Can't find your answer?<br>
+          Email us at <a href="mailto:support@passmark.ng">support@passmark.ng</a>
+        </p>
+      </div>
+
+      <!-- Right: accordion -->
+      <div class="faq__list">
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">Are these real past questions?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            Yes. Every question in Passmark comes from official past papers. For school exams like WAEC and JAMB, questions go back as far as 1983. For professional exams like ICAN, we use the official Pathfinder questions published by the exam body.
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">Can I use Passmark on my phone?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            Absolutely. Passmark is fully responsive and works great on Android and iPhone. You don't need to download any app — just open it in your browser and start practising.
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">What payment methods do you accept?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            We accept all major Nigerian debit and credit cards, as well as bank transfers, via Paystack. All transactions are secure and encrypted. You pay in Naira.
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">Is there a free trial?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            Yes! You can create a free account and practise with a limited set of questions for each exam before subscribing. No credit card required to sign up.
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">Can I switch my plan later?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            Yes, you can upgrade or downgrade your plan at any time from your account settings. If you upgrade mid-cycle, we'll credit the unused portion of your current plan.
+          </div>
+        </div>
+
+        <div class="faq-item" data-faq>
+          <div class="faq-item__question">
+            <span class="faq-item__question-text">How often are questions updated?</span>
+            <div class="faq-item__toggle">+</div>
+          </div>
+          <div class="faq-item__answer">
+            We add new questions after every major exam sitting. For JAMB and WAEC, new questions are usually added within 2–4 weeks of results being released.
+          </div>
+        </div>
+
+      </div><!-- /faq__list -->
+    </div><!-- /faq__cols -->
+  </div>
+</section>
+
+<!-- ══════════════════ CTA BAND ══════════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-band__row">
+      <div class="reveal">
+        <h2 class="cta-band__title">Ready to start preparing?</h2>
+        <p class="cta-band__desc">Join 12,000+ Nigerian students who trust Passmark to help them pass. It's free to start.</p>
+      </div>
+      <div class="cta-band__btns reveal">
+        <button class="btn btn--navy btn--lg" data-open-modal="signup">Create Free Account →</button>
+        <button class="btn btn--outline btn--lg" data-open-modal="login">Log In</button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq" class="section section--white">
-  <div class="container" style="max-width:720px">
-    <div class="section-head reveal">
-      <p class="section-eyebrow">FAQ</p>
-      <h2 class="section-title">Common Questions</h2>
-    </div>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-q">Where do the past questions come from?<span class="faq-icon">+</span></button>
-        <div class="faq-a">All questions are sourced from official past papers. WAEC and NECO questions come from official booklets. JAMB questions come from verified past papers going back to 1983. ICAN questions come from the official ICAN Pathfinder. We never use expo or runz sites.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can I try before I subscribe?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes — you get 10 free practice questions with no card required. This lets you see the question quality and platform before committing.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can I cancel at any time?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Yes. Cancel anytime from your dashboard. You keep access until the end of your paid period. No hidden fees.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">What payment methods do you accept?<span class="faq-icon">+</span></button>
-        <div class="faq-a">We accept all Nigerian debit cards (GTBank, Access, Zenith, UBA, First Bank, etc.) via Paystack. You can also pay with bank transfer.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Is there a mobile app?<span class="faq-icon">+</span></button>
-        <div class="faq-a">Not yet — but the website works perfectly on mobile. You can add it to your phone's home screen for an app-like experience. A dedicated app is coming soon.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ══════════════════ FOOTER ══════════════════ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo">
-          <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#07122A"/><path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/></svg></div>
-          <span class="logo-text">Passmark</span>
-        </a>
-        <p class="footer-tagline">Nigeria's most rigorous exam preparation platform.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Exams</h4>
-          <a href="#exams">WAEC</a>
-          <a href="#exams">NECO</a>
-          <a href="#exams">JAMB / UTME</a>
-          <a href="#exams">Post-UTME</a>
-          <a href="#exams">ICAN</a>
-          <a href="#exams">TRCN</a>
-          <a href="#exams">NCLEX-RN</a>
-          <a href="#exams">PLAB</a>
+    <div class="footer__cols">
+
+      <!-- Brand -->
+      <div>
+        <div class="footer__brand-logo">
+          <div class="nav__logo-mark" style="width:30px;height:30px">
+            <svg viewBox="0 0 21 21" fill="none"><path d="M10.5 2L18 6.5V14.5L10.5 19L3 14.5V6.5L10.5 2Z" fill="#D4900A" stroke="#D4900A" stroke-width="1"/><path d="M7 10.5L9.5 13L14 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="nav__logo-text">Passmark</span>
         </div>
-        <div class="footer-col">
-          <h4>Platform</h4>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">FAQ</a>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Refund Policy</a>
+        <p class="footer__brand-desc">Nigeria's most complete exam prep platform. Built by Nigerians, for Nigerians.</p>
+        <div class="footer__socials">
+          <a href="#" class="footer__soc" aria-label="Twitter">𝕏</a>
+          <a href="#" class="footer__soc" aria-label="Instagram">📸</a>
+          <a href="#" class="footer__soc" aria-label="Facebook">📘</a>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Passmark. All rights reserved.</p>
-      <p>Made in Nigeria 🇳🇬</p>
+
+      <!-- School Exams -->
+      <div>
+        <div class="footer__col-title">School Exams</div>
+        <a href="#exams" class="footer__col-link">WAEC</a>
+        <a href="#exams" class="footer__col-link">NECO</a>
+        <a href="#exams" class="footer__col-link">JAMB / UTME</a>
+        <a href="#exams" class="footer__col-link">Post-UTME</a>
+      </div>
+
+      <!-- Professional -->
+      <div>
+        <div class="footer__col-title">Professional</div>
+        <a href="#exams" class="footer__col-link">ICAN</a>
+        <a href="#exams" class="footer__col-link">TRCN</a>
+        <a href="#exams" class="footer__col-link">CIBN</a>
+        <a href="#exams" class="footer__col-link">NCLEX-RN</a>
+        <a href="#exams" class="footer__col-link">PLAB</a>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div class="footer__col-title">Company</div>
+        <a href="#pricing" class="footer__col-link">Pricing</a>
+        <a href="#faq"     class="footer__col-link">FAQ</a>
+        <a href="#" class="footer__col-link" data-open-modal="signup">Sign Up</a>
+        <a href="#" class="footer__col-link" data-open-modal="login">Log In</a>
+      </div>
+
+    </div><!-- /footer__cols -->
+
+    <div class="footer__bar">
+      <p class="footer__copy">© 2024 Passmark. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="#" class="footer__legal-link">Privacy Policy</a>
+        <a href="#" class="footer__legal-link">Terms of Use</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<!-- AUTH MODAL -->
-<div id="authModal" class="modal-bg">
-  <div class="modal-box">
-    <button class="modal-x" aria-label="Close">✕</button>
-    <div id="signupView" class="mv on">
-      <div class="modal-logo">
-        <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#07122A"/><path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/></svg></div>
-        <span class="logo-text">Passmark</span>
-      </div>
-      <h2>Create your account</h2>
-      <p class="modal-sub">Start with 10 free questions. No card needed.</p>
+<!-- ══════════════════ AUTH MODAL ══════════════════ -->
+<div class="modal" id="authModal">
+  <div class="modal__box">
+    <button class="modal__close" id="modalClose">✕</button>
+
+    <!-- Signup view -->
+    <div class="modal__view modal__view--active" id="signupView">
+      <div class="modal__eyebrow">Join Passmark</div>
+      <h2 class="modal__title">Create your account</h2>
+      <p class="modal__subtitle">Start practising for free today — no credit card required</p>
       <form id="signupForm">
-        <div class="field"><label>Full name</label><input type="text" placeholder="Your full name" required></div>
-        <div class="field"><label>Email address</label><input type="email" placeholder="you@example.com" required></div>
-        <div class="field"><label>Password</label><input type="password" placeholder="Min. 8 characters" required minlength="8"></div>
-        <button type="submit" class="btn btn-gold btn-fw">Create Account →</button>
+        <div class="field">
+          <label class="field__label field__label--required">Full name</label>
+          <input class="field__input" type="text" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="field">
+          <label class="field__label field__label--required">Email address</label>
+          <input class="field__input" type="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label class="field__label field__label--required">Password</label>
+          <input class="field__input" type="password" name="password" placeholder="Min 6 characters" required minlength="6" />
+        </div>
+        <button class="btn btn--gold btn--fw" type="submit">Create Account →</button>
       </form>
-      <p class="modal-switch">Already have an account? <a href="#" data-sw="login">Log in</a></p>
+      <p class="modal__switch">Already have an account? <a data-sw="login">Log in</a></p>
     </div>
-    <div id="loginView" class="mv">
-      <div class="modal-logo">
-        <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#07122A"/><path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/></svg></div>
-        <span class="logo-text">Passmark</span>
-      </div>
-      <h2>Welcome back</h2>
-      <p class="modal-sub">Log in to continue your preparation.</p>
+
+    <!-- Login view -->
+    <div class="modal__view" id="loginView">
+      <div class="modal__eyebrow">Welcome back</div>
+      <h2 class="modal__title">Log in to Passmark</h2>
+      <p class="modal__subtitle">Continue your exam preparation</p>
       <form id="loginForm">
-        <div class="field"><label>Email address</label><input type="email" placeholder="you@example.com" required></div>
-        <div class="field"><label>Password</label><input type="password" placeholder="Your password" required></div>
-        <button type="submit" class="btn btn-gold btn-fw">Log In →</button>
+        <div class="field">
+          <label class="field__label field__label--required">Email address</label>
+          <input class="field__input" type="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label class="field__label field__label--required">Password</label>
+          <input class="field__input" type="password" name="password" placeholder="Your password" required />
+        </div>
+        <button class="btn btn--gold btn--fw" type="submit">Log In →</button>
       </form>
-      <p class="modal-switch">Don't have an account? <a href="#" data-sw="signup">Sign up free</a></p>
+      <p class="modal__switch">New to Passmark? <a data-sw="signup">Sign up free</a></p>
     </div>
+
   </div>
 </div>
 
+<!-- Scripts -->
+<script src="js/utils.js"></script>
 <script src="js/home.js"></script>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script>
+'use strict';
+/* ── Topbar close ── */
+document.getElementById('topbarClose')?.addEventListener('click', () => {
+  const tb = document.getElementById('topbar');
+  if (tb) { tb.style.maxHeight = '0'; tb.style.overflow = 'hidden'; tb.style.padding = '0'; }
+});
+
+/* ── Nav scroll ── */
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav?.classList.toggle('nav--scrolled', window.scrollY > 40);
+}, { passive: true });
+
+/* ── Mobile hamburger ── */
+const ham    = document.getElementById('navHam');
+const drawer = document.getElementById('navDrawer');
+ham?.addEventListener('click', () => {
+  const open = drawer.classList.toggle('nav__drawer--open');
+  ham.setAttribute('aria-expanded', open);
+});
+
+/* ── Modal ── */
+const modal = document.getElementById('authModal');
+
+function openModal(view) {
+  document.querySelectorAll('.modal__view').forEach(v => v.classList.remove('modal__view--active'));
+  const target = document.getElementById(view + 'View');
+  if (target) target.classList.add('modal__view--active');
+  modal.classList.add('modal--open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => target?.querySelector('input')?.focus(), 280);
+}
+
+function closeModal() {
+  modal.classList.remove('modal--open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalClose')?.addEventListener('click', closeModal);
+modal?.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+document.querySelectorAll('[data-open-modal]').forEach(el =>
+  el.addEventListener('click', () => openModal(el.dataset.openModal))
+);
+
+document.querySelectorAll('[data-sw]').forEach(el =>
+  el.addEventListener('click', e => { e.preventDefault(); openModal(el.dataset.sw); })
+);
+
+/* Auto-open from URL params */
+const urlP = new URLSearchParams(location.search);
+if (urlP.get('login'))  openModal('login');
+if (urlP.get('signup')) openModal('signup');
+
+/* ── Signup ── */
+document.getElementById('signupForm')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn  = e.target.querySelector('[type=submit]');
+  const orig = btn.textContent;
+  btn.textContent = 'Creating account…'; btn.disabled = true;
+  try {
+    const data = await PM.apiRequest('/auth/register', {
+      method: 'POST',
+      body: JSON.stringify({
+        name:     e.target.querySelector('[name=name]').value,
+        email:    e.target.querySelector('[name=email]').value,
+        password: e.target.querySelector('[name=password]').value,
+      })
+    });
+    PM.setToken(data.token); PM.setUser(data.user);
+    PM.toast('Welcome to Passmark! 🎉', 'success');
+    setTimeout(() => window.location.href = 'pages/dashboard.html', 900);
+  } catch(err) {
+    PM.toast(err.message || 'Signup failed.', 'error');
+    btn.textContent = orig; btn.disabled = false;
+  }
+});
+
+/* ── Login ── */
+document.getElementById('loginForm')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn  = e.target.querySelector('[type=submit]');
+  const orig = btn.textContent;
+  btn.textContent = 'Logging in…'; btn.disabled = true;
+  try {
+    const data = await PM.apiRequest('/auth/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email:    e.target.querySelector('[name=email]').value,
+        password: e.target.querySelector('[name=password]').value,
+      })
+    });
+    PM.setToken(data.token); PM.setUser(data.user);
+    PM.toast('Welcome back! 👋', 'success');
+    setTimeout(() => window.location.href = 'pages/dashboard.html', 900);
+  } catch(err) {
+    PM.toast(err.message || 'Login failed.', 'error');
+    btn.textContent = orig; btn.disabled = false;
+  }
+});
+
+/* ── Pricing toggle ── */
+document.querySelectorAll('.pricing__tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.pricing__tab').forEach(b => b.classList.remove('pricing__tab--active'));
+    btn.classList.add('pricing__tab--active');
+    const period = btn.dataset.period;
+    document.querySelectorAll('[data-monthly]').forEach(el => {
+      el.textContent = period === 'annual' ? el.dataset.annual : el.dataset.monthly;
+    });
+    document.querySelectorAll('.price-card__period').forEach(el => {
+      el.textContent = period === 'annual' ? '/month (billed annually)' : '/month';
+    });
+  });
+});
+
+/* ── FAQ accordion ── */
+document.querySelectorAll('[data-faq]').forEach(item => {
+  item.querySelector('.faq-item__question')?.addEventListener('click', () => {
+    const isOpen = item.classList.contains('faq-item--open');
+    document.querySelectorAll('[data-faq]').forEach(i => i.classList.remove('faq-item--open'));
+    if (!isOpen) item.classList.add('faq-item--open');
+  });
+});
+
+/* ── Show logged-in user in nav ── */
+(function() {
+  const user = PM.getUser?.();
+  if (user) {
+    const name = document.getElementById('navUserName');
+    const login = document.getElementById('navLoginBtn');
+    const signup = document.getElementById('navSignupBtn');
+    if (name) { name.textContent = user.name?.split(' ')[0]; name.style.display = 'inline'; }
+    if (login) login.style.display = 'none';
+    if (signup) { signup.textContent = 'Dashboard →'; signup.removeAttribute('data-open-modal'); signup.onclick = () => window.location.href = 'pages/dashboard.html'; }
+  }
+})();
+</script>
 </body>
 </html>
