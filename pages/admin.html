@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel | Passmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar" aria-label="Admin navigation">
+
+      <a href="../index.html" class="sidebar__logo">
+        <div class="nav__logo-mark">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#0B1D3A"/>
+            <path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/>
+          </svg>
+        </div>
+        <span class="sidebar__logo-text">Passmark Admin</span>
+      </a>
+
+      <div class="sidebar__section-label">Content</div>
+      <a href="#questions"   class="sidebar__link sidebar__link--active" data-section="questions">
+        <span class="sidebar__link-icon">📋</span> Questions
+      </a>
+      <a href="#import"      class="sidebar__link" data-section="import">
+        <span class="sidebar__link-icon">📤</span> Import CSV
+      </a>
+      <a href="#exams"       class="sidebar__link" data-section="exams">
+        <span class="sidebar__link-icon">🗂️</span> Exam Config
+      </a>
+
+      <div class="sidebar__section-label">People</div>
+      <a href="#users"       class="sidebar__link" data-section="users">
+        <span class="sidebar__link-icon">👥</span> Users
+      </a>
+      <a href="#subscriptions" class="sidebar__link" data-section="subscriptions">
+        <span class="sidebar__link-icon">💳</span> Subscriptions
+      </a>
+
+      <div class="sidebar__section-label">Analytics</div>
+      <a href="#overview"    class="sidebar__link" data-section="overview">
+        <span class="sidebar__link-icon">📊</span> Overview
+      </a>
+      <a href="#payments"    class="sidebar__link" data-section="payments">
+        <span class="sidebar__link-icon">💰</span> Revenue
+      </a>
+
+      <div class="sidebar__footer">
+        <div class="sidebar__user">
+          <div class="avatar avatar--md" style="background:var(--gold-2);color:var(--navy)">A</div>
+          <div class="sidebar__user-info">
+            <div class="sidebar__user-name">Admin</div>
+            <div class="sidebar__user-plan">Super Admin</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main class="dashboard-main">
+
+      <!-- ══ SECTION: QUESTIONS ══ -->
+      <section id="section-questions">
+        <div class="dashboard-header">
+          <div>
+            <h1 class="dashboard-header__title">Question Bank</h1>
+            <p style="color:var(--mist);font-size:0.875rem;margin-top:2px;">
+              Manage all exam questions, view by exam type, edit, or delete.
+            </p>
+          </div>
+          <div style="display:flex;gap:10px;">
+            <button class="btn btn--gold" onclick="showSection('import')">+ Import CSV</button>
+            <button class="btn btn--navy" id="btn-add-question">+ Add Question</button>
+          </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="db-stats" style="margin-bottom:24px;" id="question-stats">
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Total Questions</div>
+            <div class="db-stat-card__value" id="q-total">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">WAEC / NECO</div>
+            <div class="db-stat-card__value" id="q-school">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Nursing</div>
+            <div class="db-stat-card__value" id="q-nursing">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Medical</div>
+            <div class="db-stat-card__value" id="q-medical">—</div>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filter-row">
+          <div class="field">
+            <select class="field__select" id="filter-exam" style="min-width:160px;">
+              <option value="">All Exams</option>
+              <option value="waec">WAEC</option>
+              <option value="neco">NECO</option>
+              <option value="ielts">IELTS</option>
+              <option value="nclex">NCLEX-RN</option>
+              <option value="usmle">USMLE</option>
+              <option value="plab">PLAB</option>
+              <option value="mccqe">MCCQE</option>
+              <option value="haad">HAAD</option>
+              <option value="prometric">Prometric</option>
+            </select>
+          </div>
+          <div class="field">
+            <select class="field__select" id="filter-difficulty" style="min-width:140px;">
+              <option value="">All Difficulties</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+              <option value="very-hard">Very Hard</option>
+            </select>
+          </div>
+          <div class="field" style="flex:1;max-width:360px;">
+            <input class="field__input" id="search-questions" type="search" placeholder="Search question text…">
+          </div>
+          <button class="btn btn--outline" id="btn-search-questions">Search</button>
+        </div>
+
+        <!-- Table -->
+        <div class="db-card">
+          <div class="db-card__body" style="padding:0;">
+            <div class="data-table-wrap">
+              <table class="data-table" id="questions-table">
+                <thead>
+                  <tr>
+                    <th style="width:48px;">#</th>
+                    <th>Question (preview)</th>
+                    <th>Exam</th>
+                    <th>Subject</th>
+                    <th>Year</th>
+                    <th>Difficulty</th>
+                    <th>Status</th>
+                    <th style="width:100px;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="questions-tbody">
+                  <tr>
+                    <td colspan="8" style="text-align:center;padding:40px;color:var(--mist);">
+                      Loading questions…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;flex-wrap:wrap;gap:12px;">
+          <span style="font-size:0.84rem;color:var(--mist);" id="pagination-info">Showing 1–20 of —</span>
+          <div style="display:flex;gap:8px;">
+            <button class="btn btn--outline btn--sm" id="btn-prev-page">← Prev</button>
+            <button class="btn btn--outline btn--sm" id="btn-next-page">Next →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ SECTION: IMPORT CSV ══ -->
+      <section id="section-import" style="display:none;">
+        <div class="dashboard-header">
+          <div>
+            <h1 class="dashboard-header__title">Import Questions</h1>
+            <p style="color:var(--mist);font-size:0.875rem;margin-top:2px;">
+              Upload a CSV file to bulk-import questions into the question bank.
+            </p>
+          </div>
+        </div>
+
+        <div class="db-grid">
+          <div>
+            <!-- Upload zone -->
+            <div class="db-card" style="margin-bottom:18px;">
+              <div class="db-card__header">
+                <span class="db-card__title">Upload CSV File</span>
+                <a href="../data/questions/TEMPLATE.csv" download class="btn btn--outline btn--sm">
+                  Download Template
+                </a>
+              </div>
+              <div class="db-card__body">
+                <div class="upload-zone" id="upload-zone">
+                  <div class="upload-zone__icon">📄</div>
+                  <div class="upload-zone__title">Drop your CSV file here</div>
+                  <div class="upload-zone__sub">or click to browse your files</div>
+                  <div class="upload-zone__formats">Accepted: .csv — Max size: 10 MB</div>
+                  <input type="file" accept=".csv" id="csv-file-input"
+                         style="position:absolute;inset:0;opacity:0;cursor:pointer;">
+                </div>
+                <div id="file-selected" style="display:none;margin-top:14px;">
+                  <div class="alert alert--info">
+                    <span>📄</span>
+                    <div>
+                      <strong id="file-name">filename.csv</strong>
+                      <div style="font-size:0.8rem;margin-top:2px;" id="file-size">0 KB</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Import options -->
+            <div class="db-card" style="margin-bottom:18px;">
+              <div class="db-card__header">
+                <span class="db-card__title">Import Options</span>
+              </div>
+              <div class="db-card__body">
+                <div class="field">
+                  <label class="field__label" for="import-exam">Target Exam</label>
+                  <select class="field__select" id="import-exam">
+                    <option value="">Auto-detect from CSV</option>
+                    <option value="waec">WAEC</option>
+                    <option value="neco">NECO</option>
+                    <option value="ielts">IELTS</option>
+                    <option value="nclex">NCLEX-RN</option>
+                    <option value="usmle">USMLE</option>
+                    <option value="plab">PLAB</option>
+                    <option value="mccqe">MCCQE</option>
+                    <option value="haad">HAAD</option>
+                    <option value="prometric">Prometric</option>
+                  </select>
+                </div>
+                <label class="check-row" style="margin-bottom:10px;">
+                  <input type="checkbox" id="skip-duplicates" checked>
+                  Skip duplicate questions (recommended)
+                </label>
+                <label class="check-row">
+                  <input type="checkbox" id="publish-immediately">
+                  Publish immediately after import
+                </label>
+                <button class="btn btn--gold btn--fw btn--lg" id="btn-import" disabled style="margin-top:8px;">
+                  Import Questions
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Import log + format guide -->
+          <div>
+            <div class="db-card" style="margin-bottom:18px;">
+              <div class="db-card__header">
+                <span class="db-card__title">Import Log</span>
+              </div>
+              <div class="db-card__body" style="padding:0;">
+                <div class="import-log" id="import-log">
+                  <span style="color:rgba(255,255,255,0.28);">Waiting for import…</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="db-card">
+              <div class="db-card__header">
+                <span class="db-card__title">CSV Format</span>
+              </div>
+              <div class="db-card__body">
+                <p style="font-size:0.84rem;color:var(--slate);margin-bottom:12px;line-height:1.7;">
+                  Each row = one question. Required columns:
+                </p>
+                <div style="background:var(--navy);border-radius:8px;padding:14px 16px;font-family:var(--font-mono);font-size:0.75rem;color:rgba(255,255,255,0.75);line-height:1.9;overflow-x:auto;">
+                  exam, subject, year, difficulty,<br>
+                  question_text, option_a, option_b,<br>
+                  option_c, option_d, correct_option,<br>
+                  explanation, tags, source
+                </div>
+                <p style="font-size:0.78rem;color:var(--mist);margin-top:10px;">
+                  <strong>correct_option:</strong> A, B, C, or D<br>
+                  <strong>difficulty:</strong> easy | medium | hard | very-hard<br>
+                  <strong>source:</strong> waec-official-2023 | original | etc.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ SECTION: USERS ══ -->
+      <section id="section-users" style="display:none;">
+        <div class="dashboard-header">
+          <div>
+            <h1 class="dashboard-header__title">Users</h1>
+            <p style="color:var(--mist);font-size:0.875rem;margin-top:2px;">
+              View and manage all registered users.
+            </p>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="field" style="flex:1;max-width:360px;">
+            <input class="field__input" type="search" placeholder="Search by name or email…" id="search-users">
+          </div>
+          <div class="field">
+            <select class="field__select" id="filter-user-plan">
+              <option value="">All Plans</option>
+              <option value="free">Free</option>
+              <option value="ielts">IELTS</option>
+              <option value="waec">WAEC & NECO</option>
+              <option value="nursing">Nursing & Medical</option>
+              <option value="bundle">Full Bundle</option>
+            </select>
+          </div>
+          <button class="btn btn--outline" id="btn-search-users">Search</button>
+        </div>
+
+        <div class="db-card">
+          <div class="db-card__body" style="padding:0;">
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Plan</th>
+                    <th>Joined</th>
+                    <th>Last Active</th>
+                    <th>Sessions</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="users-tbody">
+                  <tr>
+                    <td colspan="8" style="text-align:center;padding:40px;color:var(--mist);">
+                      Loading users…
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══ SECTION: OVERVIEW ══ -->
+      <section id="section-overview" style="display:none;">
+        <div class="dashboard-header">
+          <div>
+            <h1 class="dashboard-header__title">Platform Overview</h1>
+          </div>
+        </div>
+
+        <div class="db-stats">
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Total Users</div>
+            <div class="db-stat-card__value" id="overview-users">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Active Subscribers</div>
+            <div class="db-stat-card__value" id="overview-subs">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Sessions Today</div>
+            <div class="db-stat-card__value" id="overview-sessions">—</div>
+          </div>
+          <div class="db-stat-card">
+            <div class="db-stat-card__label">Revenue (Month)</div>
+            <div class="db-stat-card__value" id="overview-revenue">—</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+</body>
+</html>

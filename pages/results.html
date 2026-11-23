@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results | Passmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/quiz.css">
+</head>
+<body style="background:var(--off);min-height:100vh;">
+
+  <!-- Top bar -->
+  <header style="background:var(--white);border-bottom:1px solid var(--cloud);padding:14px 0;position:sticky;top:0;z-index:100;">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <a href="../index.html" class="nav__logo" style="display:flex;align-items:center;gap:10px;">
+        <div class="nav__logo-mark">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 20V4h7c1.6 0 2.9.48 3.8 1.44.9.96 1.35 2.14 1.35 3.56 0 1.42-.45 2.6-1.35 3.54C14.9 13.52 13.6 14 12 14H8.4V20H5z" fill="#0B1D3A"/>
+            <path d="M8.4 7.2v4.56h3.1c.76 0 1.34-.2 1.74-.6.4-.4.6-.96.6-1.68s-.2-1.28-.6-1.68c-.4-.4-.98-.6-1.74-.6H8.4z" fill="white"/>
+          </svg>
+        </div>
+        <span style="font-family:var(--font-serif);font-size:1.2rem;font-weight:700;color:var(--navy);">Passmark</span>
+      </a>
+      <div style="display:flex;gap:10px;">
+        <a href="quiz.html"      class="btn btn--gold">Practice Again →</a>
+        <a href="dashboard.html" class="btn btn--outline">Dashboard</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Score hero -->
+  <section class="results-hero">
+    <div class="container">
+      <p style="font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;" id="results-exam-label">
+        WAEC · Biology · 2024
+      </p>
+      <div class="results-score-ring" id="score-ring" style="background:conic-gradient(var(--teal) 0deg, rgba(255,255,255,0.1) 0deg);">
+        <div>
+          <div class="results-score-ring__value" id="score-value">—</div>
+          <div class="results-score-ring__label">Score</div>
+        </div>
+      </div>
+      <h1 style="font-family:var(--font-serif);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--white);margin-bottom:8px;" id="results-verdict">
+        Loading results…
+      </h1>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);" id="results-subtext"></p>
+    </div>
+  </section>
+
+  <!-- Breakdown stats -->
+  <div class="container" style="padding-top:32px;">
+    <div class="results-breakdown">
+      <div class="results-stat">
+        <div class="results-stat__value" id="stat-correct">—</div>
+        <div class="results-stat__label">Correct</div>
+      </div>
+      <div class="results-stat">
+        <div class="results-stat__value" id="stat-wrong">—</div>
+        <div class="results-stat__label">Wrong</div>
+      </div>
+      <div class="results-stat">
+        <div class="results-stat__value" id="stat-unanswered">—</div>
+        <div class="results-stat__label">Unanswered</div>
+      </div>
+      <div class="results-stat">
+        <div class="results-stat__value" id="stat-time">—</div>
+        <div class="results-stat__label">Time Used</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question review -->
+  <div class="container" style="padding:28px 0 60px;">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:12px;">
+      <h2 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:700;color:var(--navy);">
+        Review All Questions
+      </h2>
+      <div style="display:flex;gap:8px;">
+        <button class="btn btn--outline btn--sm" id="filter-all">All</button>
+        <button class="btn btn--outline btn--sm" id="filter-wrong">Wrong Only</button>
+        <button class="btn btn--outline btn--sm" id="filter-flagged">Flagged</button>
+      </div>
+    </div>
+
+    <!-- Question cards rendered by results.js -->
+    <div id="review-list" style="display:flex;flex-direction:column;gap:14px;">
+      <p style="color:var(--mist);">Loading question review…</p>
+    </div>
+
+  </div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/results.js"></script>
+</body>
+</html>

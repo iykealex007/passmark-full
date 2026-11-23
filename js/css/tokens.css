@@ -1,0 +1,202 @@
+/**
+ * PASSMARK — tokens.css
+ * Design system: colours, typography, spacing, shadows, motion.
+ * Every other CSS file imports from here via var().
+ * ─────────────────────────────────────────────────────────────
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+
+  /* ── Brand Palette ─────────────────────────────────────── */
+  --navy:        #0B1D3A;
+  --navy-2:      #112347;
+  --navy-3:      #1A3060;
+  --navy-4:      #243A78;
+  --navy-border: rgba(255, 255, 255, 0.08);
+
+  --gold:        #D4900A;
+  --gold-2:      #E9A800;
+  --gold-lt:     #F5BC20;
+  --gold-pale:   #FFF8E1;
+  --gold-dark:   #A06800;
+
+  --teal:        #007B68;
+  --teal-2:      #009B84;
+  --teal-pale:   #E0F5F1;
+  --teal-dark:   #005A4C;
+
+  /* ── Neutrals ──────────────────────────────────────────── */
+  --white:   #FFFFFF;
+  --off:     #F8F9FB;
+  --cloud:   #ECEEF4;
+  --smoke:   #D0D5E4;
+  --mist:    #8892AA;
+  --slate:   #4B5570;
+  --ink:     #0F1826;
+
+  /* ── Semantic Accents ──────────────────────────────────── */
+  --blue:       #2255CC;
+  --blue-pale:  #EEF2FF;
+  --rose:       #CC2A2A;
+  --rose-pale:  #FFF0F0;
+  --violet:     #7B2FBE;
+  --violet-pale:#F3EFFE;
+  --green:      #1A7A3A;
+  --green-pale: #ECFDF3;
+  --amber:      #C47A00;
+  --amber-pale: #FFFBEB;
+
+  /* ── Typography ────────────────────────────────────────── */
+  --font-serif:  'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans:   'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:   'JetBrains Mono', 'Courier New', monospace;
+
+  /* ── Type Scale ────────────────────────────────────────── */
+  --text-xs:   0.70rem;   /* 11px — labels, badges        */
+  --text-sm:   0.80rem;   /* 13px — captions, meta        */
+  --text-base: 0.875rem;  /* 14px — body text             */
+  --text-md:   1.00rem;   /* 16px — larger body           */
+  --text-lg:   1.125rem;  /* 18px — lead / intro          */
+  --text-xl:   1.375rem;  /* 22px — card headings         */
+  --text-2xl:  1.75rem;   /* 28px — section subheadings   */
+  --text-3xl:  2.25rem;   /* 36px — section headings      */
+  --text-4xl:  3.00rem;   /* 48px — hero heading          */
+  --text-5xl:  4.00rem;   /* 64px — display heading       */
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --max-width:    1240px;
+  --pad-x:        clamp(18px, 5vw, 64px);
+  --section-y:    80px;
+  --section-y-lg: 110px;
+
+  /* ── Radii ──────────────────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-pill: 999px;
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --shadow-xs: 0 1px 3px rgba(11, 29, 58, 0.06);
+  --shadow-sm: 0 2px 8px rgba(11, 29, 58, 0.08), 0 1px 3px rgba(11, 29, 58, 0.05);
+  --shadow-md: 0 6px 24px rgba(11, 29, 58, 0.10), 0 2px 8px rgba(11, 29, 58, 0.06);
+  --shadow-lg: 0 14px 44px rgba(11, 29, 58, 0.12), 0 4px 14px rgba(11, 29, 58, 0.07);
+  --shadow-xl: 0 26px 68px rgba(11, 29, 58, 0.15), 0 8px 24px rgba(11, 29, 58, 0.08);
+  --shadow-gold: 0 4px 18px rgba(233, 168, 0, 0.35);
+
+  /* ── Motion ─────────────────────────────────────────────── */
+  --ease:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in:     cubic-bezier(0.4, 0, 1, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+  --dur-fast:    150ms;
+  --dur-base:    220ms;
+  --dur-slow:    400ms;
+
+  /* ── Z-index Stack ──────────────────────────────────────── */
+  --z-base:    1;
+  --z-raised:  10;
+  --z-dropdown: 100;
+  --z-sticky:  200;
+  --z-nav:     500;
+  --z-topbar:  510;
+  --z-modal:   900;
+  --z-toast:   9999;
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* ── Layout Utilities ───────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+.section {
+  padding: var(--section-y) 0;
+}
+
+.section--lg {
+  padding: var(--section-y-lg) 0;
+}
+
+.section--white  { background: var(--white); }
+.section--off    { background: var(--off); }
+.section--navy   { background: var(--navy); }
+.section--navy-2 { background: var(--navy-2); }
+
+/* ── Scroll Reveal ──────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.65s var(--ease),
+    transform 0.65s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal--delay-1 { transition-delay: 0.07s; }
+.reveal--delay-2 { transition-delay: 0.14s; }
+.reveal--delay-3 { transition-delay: 0.21s; }
+.reveal--delay-4 { transition-delay: 0.28s; }
+.reveal--delay-5 { transition-delay: 0.35s; }

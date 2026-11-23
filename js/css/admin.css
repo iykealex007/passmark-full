@@ -1,0 +1,105 @@
+/**
+ * PASSMARK — admin.css
+ * Styles for pages/admin.html
+ * Requires: tokens.css, components.css, dashboard.css
+ * ─────────────────────────────────────────────
+ */
+
+/* Admin uses the dashboard sidebar layout. These are additions. */
+
+/* ── Data Table ── */
+.data-table-wrap { overflow-x: auto; }
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+}
+
+.data-table th {
+  padding: 11px 14px;
+  text-align: left;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+  border-bottom: 1.5px solid var(--cloud);
+  white-space: nowrap;
+  background: var(--off);
+}
+
+.data-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--cloud);
+  color: var(--slate);
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+
+.data-table tr:hover td { background: rgba(11,29,58,0.02); }
+
+/* ── Upload Zone ── */
+.upload-zone {
+  border: 2px dashed var(--smoke);
+  border-radius: var(--radius-xl);
+  padding: 48px 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--dur-base) ease;
+  background: var(--off);
+}
+
+.upload-zone:hover,
+.upload-zone--drag-over {
+  border-color: var(--navy);
+  background: rgba(11, 29, 58, 0.03);
+}
+
+.upload-zone__icon { font-size: 2.5rem; margin-bottom: 14px; }
+.upload-zone__title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.upload-zone__sub   { font-size: var(--text-sm); color: var(--mist); }
+.upload-zone__formats { font-size: var(--text-xs); color: var(--smoke); margin-top: 8px; font-family: var(--font-mono); }
+
+/* ── Filter Row ── */
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.filter-row .field { margin-bottom: 0; }
+.filter-row .field__select,
+.filter-row .field__input { padding: 8px 12px; font-size: var(--text-sm); }
+
+/* ── Status Dots ── */
+.status-dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+.status-dot::before { content:''; width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.status-dot--active   { color: var(--teal);  } .status-dot--active::before   { background: var(--teal); }
+.status-dot--inactive { color: var(--mist);  } .status-dot--inactive::before { background: var(--smoke); }
+.status-dot--pending  { color: var(--amber); } .status-dot--pending::before  { background: var(--amber); }
+
+/* ── Import Progress ── */
+.import-log {
+  background: var(--navy);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.75);
+  max-height: 240px;
+  overflow-y: auto;
+  line-height: 1.9;
+}
+.import-log__line--ok   { color: var(--teal-2); }
+.import-log__line--err  { color: #ff7a7a; }
+.import-log__line--warn { color: var(--gold-lt); }

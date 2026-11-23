@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice | Passmark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/quiz.css">
+</head>
+<body>
+
+  <div class="quiz-layout">
+
+    <!-- ── TOP BAR ── -->
+    <header class="quiz-topbar" role="banner">
+      <div class="quiz-topbar__inner">
+
+        <!-- Left: exam info -->
+        <div class="quiz-topbar__info">
+          <span class="quiz-topbar__exam" id="quiz-exam-label">Loading…</span>
+          <span class="quiz-topbar__sub"  id="quiz-mode-label">Practice Mode</span>
+        </div>
+
+        <!-- Centre: progress -->
+        <div class="quiz-topbar__center">
+          <div class="quiz-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div class="quiz-progress__track">
+              <div class="quiz-progress__fill" id="quiz-progress-fill" style="width:0%"></div>
+            </div>
+            <span class="quiz-progress__text" id="quiz-progress-text">0 / 0</span>
+          </div>
+        </div>
+
+        <!-- Right: timer + exit -->
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="quiz-timer" id="quiz-timer" aria-live="polite" aria-label="Time remaining">
+            <span aria-hidden="true">⏱</span>
+            <span id="timer-display">00:00</span>
+          </div>
+          <a href="dashboard.html" class="btn btn--outline btn--sm"
+             onclick="return confirm('Leave this session? Your progress will be lost.')">
+            Exit
+          </a>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- ── QUESTION BODY ── -->
+    <main class="quiz-body">
+
+      <!-- Question meta -->
+      <div class="quiz-meta">
+        <span class="quiz-number" id="question-number">Question 1 of 40</span>
+        <span class="badge badge--teal" id="question-tag">WAEC · Biology</span>
+      </div>
+
+      <!-- Question stem -->
+      <p class="quiz-stem" id="question-stem">Loading question…</p>
+
+      <!-- Answer options -->
+      <div class="quiz-options" id="question-options" role="group" aria-label="Answer options">
+        <!-- Rendered by quiz.js -->
+      </div>
+
+      <!-- Explanation (shown after answering in practice mode) -->
+      <div class="quiz-explanation" id="quiz-explanation" aria-live="polite">
+        <div class="quiz-explanation__label">
+          <span aria-hidden="true">💡</span> Explanation
+        </div>
+        <p class="quiz-explanation__text" id="explanation-text"></p>
+      </div>
+
+    </main>
+
+    <!-- ── BOTTOM NAVIGATION ── -->
+    <footer class="quiz-footer">
+      <div class="quiz-footer__inner">
+
+        <div class="quiz-footer__flags">
+          <button class="quiz-flag-btn" id="btn-flag" aria-label="Flag this question for review">
+            ⚑ Flag
+          </button>
+          <button class="quiz-flag-btn" id="btn-bookmark" aria-label="Bookmark this question">
+            🔖 Bookmark
+          </button>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn btn--outline" id="btn-prev" disabled>← Previous</button>
+          <button class="btn btn--navy"    id="btn-next">Next →</button>
+          <button class="btn btn--gold"    id="btn-submit" style="display:none;">
+            Submit Exam
+          </button>
+        </div>
+
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/quiz.js"></script>
+</body>
+</html>
